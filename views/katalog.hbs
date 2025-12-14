@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+
+    <!-- danfo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Londrina+Sketch&display=swap" rel="stylesheet">
+
+    <!-- Ruslan Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ruslan+Display&family=Slackey&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/katalog.css">
+    
+</head>
+<body>
+    
+    {{> header}}
+
+<div id="grand">
+    <div class="filter">
+        <a href="/katalog?sort=ascending" class="sort custom-btn btn-2">Сортировать по возрастанию цены</a>
+        <a href="/katalog?sort=descending" class="sort custom-btn btn-2">Сортировать по убыванию цены</a>
+    </div>
+
+        <div id="products-container">
+            
+            {{#each sneakers}}
+                <div class="product-card">
+                    <img src="{{image.[0]}}" alt="Nike Air Force 1 '07" class="img-small">
+                    <h3>{{title}}</h3>
+                    <p>${{price}}</p>
+                    <p class="hidden">Кроссовки Nike Air Force 1 '07 LV8 </p>
+                    {{#if @root.auth}}
+                        <a href="/auth/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                    {{else}}
+                        <a href="/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                    {{/if}}  
+                </div>
+            {{/each}}
+
+
+</div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/slick.js"></script>
+    <script src="/js/project.js"></script>
+</body>
+</html>

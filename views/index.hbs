@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+
+    <!-- danfo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Londrina+Sketch&display=swap" rel="stylesheet">
+
+    <!-- Ruslan Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ruslan+Display&family=Slackey&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/project.css">
+</head>
+<body>
+    
+    <div id="maindiv">
+
+        {{> header}}
+
+    <section id="home">
+        <h1 class="ruslan-display-regular" style="color: rgb(43, 47, 51); font-size: 50px;">Главная</h1>
+        <div style="width: 1150px; height: 100%; display: flex; align-items: center; flex-direction: row; justify-content: space-around;">
+            <div class="sec" data-aos="fade-up">
+                <p style="padding: 30px; font-size: 24px;" class="ruslan-display-regular">👟 Добро пожаловать в SNEAKERS – ваш идеальный магазин кроссовок! Мы предлагаем стильные, удобные и качественные модели для спорта и повседневной жизни.</p>
+            </div>
+            <div class="sec" data-aos="fade-up">
+                <p style="padding: 30px; font-size: 24px;" class="ruslan-display-regular">🔥 В нашем каталоге вы найдете кроссовки от ведущих брендов, которые подчеркнут ваш стиль и обеспечат комфорт на каждый день.</p>
+            </div>
+            <div class="sec" data-aos="fade-up">
+                <p style="padding: 30px; font-size: 24px;" class="ruslan-display-regular">⚡ Быстрая доставка, удобная оплата и надежное качество – делайте покупки легко и с удовольствием в <b class="danfo">SNEAKERS!</b></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="catalog">
+        <h1  class="ruslan-display-regular" style="color: rgb(43, 47, 51); font-size: 50px; margin-bottom: 50px;">Каталог</h1>
+        
+        <div id="products-container">
+            {{#each sneakers}}
+                <div class="product-card">
+                    <img src="{{image.[0]}}" alt="Nike Air Force 1 '07" class="img-small">
+                    <h3>{{title}}</h3>
+                    <p>${{price}}</p>
+                    <p class="hidden">Кроссовки Nike Air Force 1 '07 LV8 </p>
+                    <a href="/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                </div>                
+            {{/each}}
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <a id="more" class="ruslan-display-regular" href="\katalog">Далее</a>
+        </div>
+
+
+    </section>
+    
+
+    <section id="reviews">
+        <h1 class="ruslan-display-regular" style="color: rgb(43, 47, 51); font-size: 50px;">Отзывы</h1>
+        <div class="container-reviews">
+        <div>
+            <div class="review">
+                <div class="profile">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="user" class="user-image">
+                <p class="user-name"><b>Иван Иванов</b></p>
+                </div>
+                <br>
+                <br>
+
+                <p>Купил себе Air Force 1 и не пожалел ни на секунду! Отличное качество материалов – натуральная кожа, прочная подошва и мягкая амортизация делают их невероятно удобными. Можно носить целый день, и ноги не устают.</p>
+                <br>
+                <p>✅ Плюсы: комфорт, стиль, качество, универсальность.</p>
+                <br>
+                <p>❌ Минус: легко мараются (особенно белые).</p>
+                <br>
+                <p>💯 Оценка: 10/10 – рекомендую! 😎</p>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="review" id="center">
+                <div class="profile">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="user" class="user-image">
+                <p class="user-name"><b>Семен Бакин</b></p>
+                </div>
+                <br>
+                <br>
+
+                <p>Jordan 5 Retro – это не просто кроссовки, а культовая модель с богатой историей. Первое, что бросается в глаза, – агрессивный дизайн с массивной подошвой и культовыми "акульими зубами" сбоку.</p>
+                <br>
+                <p>✅ Плюсы: крутой дизайн, амортизация Air, качественные материалы, история модели.</p>
+                <br>
+                <p>❌ Минус: немного тяжеловаты, требуют ухода.</p>
+                <br>
+                <p>💯 Оценка: 9/10 – классика, которая всегда в тренде! 🔥🏀</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="review" id="last">
+                <div class="profile">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="user" class="user-image">
+                <p class="user-name"><b>Сергей Макеев</b></p>
+                </div>
+                <br>
+                <br>
+
+                <p>Купил Vans Sk8-Hi и теперь не представляю свой гардероб без них! Высокий силуэт не только стильно смотрится, но и хорошо фиксирует ногу.</p>
+                <br>
+                <p>✅ Плюсы: стильный ретро-дизайн, удобство, прочные материалы, хорошая фиксация ноги.</p>
+                <br>
+                <p>❌ Минус: замша требует ухода, не лучший вариант для дождя.</p>
+                <br>
+                <p>💯 Оценка: 9/10 – легендарные кеды, которые подходят и для скейта, и для повседневной носки! 🛹🔥</p>
+            </div>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <a class="ruslan-display-regular" href="\reviews">все отзывы</a>
+        </div>
+
+        </div>
+    
+    </section>
+
+
+    
+
+
+
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <span class="ruslan-display-regular">Адрес: г. Москва, ул. Ленина, д. 1</span>
+                <span class="ruslan-display-regular">Телефон: +7(999)999-99-99</span>
+                <span class="ruslan-display-regular">Email: maximnovitskiy274@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/project.js"></script>
+    <script src="/js/slick.js"></script>
+</body>
+</html>

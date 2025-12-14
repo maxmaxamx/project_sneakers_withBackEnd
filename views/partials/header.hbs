@@ -1,0 +1,34 @@
+<nav class="sticky" style="z-index: 10;">
+            
+        {{#if @root.auth}}
+            <div>
+                <a href="/auth/" class="danfo">SNEAKERS</a>    
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="/auth/logout" id="enter-button" class="ruslan-display-regular" style="font-size: 30px; margin-top: 10px; background-color: transparent; border: none;">Выйти</a>
+                    </li>
+                    <li><a href="/auth/katalog" id="third" class="ruslan-display-regular" style="font-size: 30px; margin-top: 10px;">Каталог</a></li>
+                    <li><a href="/reviews" id="second" class="ruslan-display-regular" style="font-size: 30px;">Отзывы</a></li>
+                    <li><a href="/auth/basket" id="fourth" class="ruslan-display-regular" style="font-size: 30px;">Корзина</a></li>
+                </ul>
+            </div>
+        {{else}} 
+            <div>
+                <a href="/" class="danfo">SNEAKERS</a>         
+            </div>     
+            <div>
+                <ul>
+                    <li>
+                        <a href="/log" id="enter-button" class="ruslan-display-regular" style="font-size: 30px; margin-top: 10px; background-color: transparent; border: none;">Войти</a>
+                    </li>
+                    <li><a href="/katalog" id="third" class="ruslan-display-regular" style="font-size: 30px; margin-top: 10px;">Каталог</a></li>
+                    <li><a href="/reviews" id="second" class="ruslan-display-regular" style="font-size: 30px;">Отзывы</a></li>
+                    <li><a href="/basket" id="fourth" class="ruslan-display-regular" style="font-size: 30px;">Корзина</a></li>
+                </ul>
+            </div>
+
+        
+        {{/if}}
+</nav>

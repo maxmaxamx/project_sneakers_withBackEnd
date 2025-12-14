@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Londrina+Sketch&display=swap" rel="stylesheet">
+
+    <!-- Slackey Static -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
+
+    <!-- Ruslan Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ruslan+Display&family=Slackey&display=swap"
+        rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/basket.css">
+
+
+</head>
+
+<body>
+    <div id="main">
+        <base href="/" />
+        {{> header}}
+
+        {{#if auth}}
+        <div id="block">
+            <div class="shopping-cart">
+                <div class="title">Shopping Bag</div>
+                {{#if cart}}
+                {{#each cart}}
+                <div class="item">
+                    <div class="buttons">
+                        <button class="delete-btn" data-action="remove" data-id="{{id}}">&#x2715;</button>
+                    </div>
+                    <div class="image">
+                        <img src="{{product.image.[0]}}" alt="{{product.title}}" />
+                    </div>
+                    <div class="description">
+                        <span>{{product.title}}</span>
+                        <span class="price"><b>{{totalPrice}}</b></span>
+                    </div>
+                    <div class="quantity">
+                        <button class="plus-btn" data-action="plus" data-id="{{product.id}}">+</button>
+                        <span data-count>{{quantity}}</span>
+                        <button class="minus-btn" data-action="minus" data-id="{{product.id}}">-</button>
+                    </div>
+                </div>
+                {{/each}}
+                <div class="total-price" id="total-price">
+                    <p class="total">Итого: {{total}}$</p>
+                </div>
+
+                {{else}}
+
+                <p>Здесь пока ничего нету</p>
+                {{/if}}
+
+            </div> 
+        </div>
+
+        {{else}}
+        <div id="block">
+            <div class="shopping-cart">
+                <div class="title">Shopping Bag</div>
+                <p>Чтобы добавлять товары войдите в аккаунт</p>
+                <div class="total-price" id="total-price">
+                    <p class="total">Итого:</p>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/js/basket.js"></script>
+</body>
+
+</html>
