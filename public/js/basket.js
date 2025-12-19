@@ -1,54 +1,78 @@
-function getCart() {
-    return JSON.parse(localStorage.getItem('cart')) || [];
-}
+document.querySelector('.shopping-cart').addEventListener('click', function (event) {
+  const btn = event.target;
+  const productId = btn.getAttribute('data-id');
+  if (!productId) return;
 
-// Сохранить корзину в localStorage
-function setCart(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-// Делегирование событий для кнопок в корзине
-document.querySelector('.shopping-cart').addEventListener('click', function(event) {
-    const btn = event.target;
-    const productId = btn.getAttribute('data-id');
-    if (!productId) return;
-
-    if (btn.getAttribute('data-action') === 'plus') {
-        plus(+productId);
-    } else if (btn.getAttribute('data-action') === 'minus') {
-        minus(+productId);
-    } else if (btn.getAttribute('data-action') === 'remove') {
-        removeFromCart(+productId);
-    }
+  if (btn.getAttribute('data-action') === 'plus') {
+    plus(+productId);
+  } else if (btn.getAttribute('data-action') === 'minus') {
+    minus(+productId);
+  } else if (btn.getAttribute('data-action') === 'remove') {
+    removeFromCart(+productId);
+  }
 });
 
-// Удаление товара
-function removeFromCart(productId) {
-    cart = cart.filter(p => p.id !== productId);
-    setCart(cart);
+
+async function removeFromCart(productId, element) {
+  try {
+    const response = await fetch(`/auth/basket/delete/${productId}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Не удалось удалить товар');
+    }
+
+    const result = await response.json();
+
+    location.reload();
+
+  } catch (error) {
+    console.error('Ошибка удаления:', error);
+    alert("Ошибка: " + error.message);
+  }
 }
 
 // Увеличить количество
 async function plus(productId) {
-    let cart = getCart();
-    const product = cart.find(p => p.id === productId);
-    if (product) {
-        product.quantity += 1;
-        setCart(cart);
+  try {
+    const response = await fetch(`/auth/basket/plus/${productId}`, {
+      method: "PUT",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Не удалось добавить товар');
     }
+
+    const result = await response.json();
+
+    location.reload();
+
+  } catch (error) {
+    console.error('Ошибка удаления:', error);
+    alert("Ошибка: " + error.message);
+  }
 }
 
-// Уменьшить количество
-function minus(productId) {
-    let cart = getCart();
-    const product = cart.find(p => p.id === productId);
-    if (product) {
-        if (product.quantity > 1) {
-            product.quantity -= 1;
-        } else {
-            cart = cart.filter(p => p.id !== productId);
-        }
-        setCart(cart);
-        updateCartDisplay();
+async function minus(productId) {
+  try {
+    const response = await fetch(`/auth/basket/minus/${productId}`, {
+      method: "PUT",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Не удалось уменьшить товар');
     }
+
+    const result = await response.json();
+
+    location.reload();
+
+  } catch (error) {
+    console.error('Ошибка удаления:', error);
+    alert("Ошибка: " + error.message);
+  }
 }

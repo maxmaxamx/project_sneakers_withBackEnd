@@ -163,6 +163,11 @@ a{
     width: 300px;
     height: 500px;
     border: 1px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:15px;
+    padding: 15px 15px;
 }
 
 #grand{
@@ -176,12 +181,12 @@ a{
 .sort{
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
+    text-align: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 295px;
-    margin-top: 15px;
+    width: 260px;
+
     text-decoration: none;
     display: inline-block;
 }
@@ -262,3 +267,28 @@ a{
     inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
 
+.prices{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.input {
+  border: 2px solid transparent;
+  width: 260px;
+  height: 2.5em;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white;
+}

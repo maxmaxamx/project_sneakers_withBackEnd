@@ -1,7 +1,6 @@
 const session = require("express-session");
 const crypto = require("crypto");
 
-//инициализация middleware для работы с сессией
 const authInit = () =>
   session({
     secret: crypto.randomBytes(32).toString("hex"),

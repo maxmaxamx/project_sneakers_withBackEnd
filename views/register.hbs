@@ -23,9 +23,9 @@
     {{>header}}
     <div id="enter-main" class="hidden modal">
             <div class="enter">
-                <form action="/login" method="POST" id="log">
-                    <input type="email" placeholder="Введите email">
-                    <input type="password" placeholder="Введите пароль">
+                <form action="/reg" method="POST" id="log">
+                    <input type="email" placeholder="Введите email" name="username" required>
+                    <input type="password" placeholder="Введите пароль" name="password" required>
                     <button class="custom-btn btn-2">Зарегистрироваться</button>
                 </form>
                 <a href="log" class="singup" id="signup">Войти</a>

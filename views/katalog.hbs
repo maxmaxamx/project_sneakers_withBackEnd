@@ -27,8 +27,15 @@
 
 <div id="grand">
     <div class="filter">
-        <a href="/katalog?sort=ascending" class="sort custom-btn btn-2">Сортировать по возрастанию цены</a>
-        <a href="/katalog?sort=descending" class="sort custom-btn btn-2">Сортировать по убыванию цены</a>
+        <button onclick="ascending()" class="sort custom-btn btn-2">Сортировать по возрастанию</button>
+        <button onclick="descending()" class="sort custom-btn btn-2">Сортировать по убыванию</button>
+        <div class="prices">
+            <p>Цена</p>
+            <input class="input" type="number" placeholder="от" id="minprice" value="{{minprice}}">
+            <input class="input" type="number" placeholder="до" id="maxprice" value="{{maxprice}}">
+        </div>
+        <button onclick="setParams()" class="sort custom-btn btn-2">Применить</button>
+        <button onclick="resetFilters()" class="sort custom-btn btn-2">Сбросить</button>
     </div>
 
         <div id="products-container">
@@ -54,6 +61,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/js/slick.js"></script>
-    <script src="/js/project.js"></script>
+    <script src="/js/katalog.js"></script>
 </body>
 </html>
