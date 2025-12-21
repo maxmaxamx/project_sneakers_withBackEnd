@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ruslan+Display&family=Slackey&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/project.css">
 </head>
 <body>
@@ -50,7 +50,11 @@
                     <h3>{{title}}</h3>
                     <p>${{price}}</p>
                     <p class="hidden">Кроссовки Nike Air Force 1 '07 LV8 </p>
-                    <a href="/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                    {{#if @root.auth}}
+                        <a href="/auth/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                    {{else}}
+                        <a href="/product?id={{id}}" class="view-details custom-btn btn-2">Подробнее</a>
+                    {{/if}}
                 </div>                
             {{/each}}
         </div>
@@ -122,13 +126,18 @@
                 <p>💯 Оценка: 9/10 – легендарные кеды, которые подходят и для скейта, и для повседневной носки! 🛹🔥</p>
             </div>
         </div>
-        <div style="width: 100%; display: flex; justify-content: center;">
-            <a class="ruslan-display-regular" href="\reviews">все отзывы</a>
-        </div>
+        
 
         </div>
     
     </section>
+    <div style="width: 100%; display: flex; justify-content: center;">
+        {{#if @root.auth}}
+            <a id="moree" class="ruslan-display-regular" href="\auth\reviews">все отзывы</a>
+        {{else}}
+            <a id="moree" class="ruslan-display-regular" href="\reviews">все отзывы</a>
+        {{/if}}
+    </div>
 
 
     
@@ -138,8 +147,8 @@
     <footer>
         <div class="footer">
             <div class="footer-content">
-                <span class="ruslan-display-regular">Адрес: г. Москва, ул. Ленина, д. 1</span>
-                <span class="ruslan-display-regular">Телефон: +7(999)999-99-99</span>
+                <span class="ruslan-display-regular">Адрес: г. Минск, ул. Ленина, д. 1</span>
+                <span class="ruslan-display-regular">Телефон: +375(67)322-67-67</span>
                 <span class="ruslan-display-regular">Email: maximnovitskiy274@gmail.com</span>
             </div>
         </div>

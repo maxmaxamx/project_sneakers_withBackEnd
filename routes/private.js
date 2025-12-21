@@ -1,10 +1,13 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const { sneakers, users, sync, param } = require("../data/information");
+const formidable = require("formidable");
+const { sneakers, users,reviews, sync, param } = require("../data/information");
 const { checkAuth } = require("../middleware/authMiddlewear");
 
 const usersPath = path.join(__dirname, "../data/json/users.json");
+
+const reviewsPath = path.join(__dirname, "../data/json/reviews.json");
 
 //сюда сможет зайти лишь тот, у кого корректные данные
 const privateRouter = express.Router();
@@ -14,7 +17,7 @@ exports.privateRouter = privateRouter;
 privateRouter.use(checkAuth);
 
 privateRouter.use((req, res, next) => {
-  res.locals.auth = !!req.session?.auth;
+  res.locals.auth = true;
 
   const username = req.session.username;
 
@@ -42,14 +45,14 @@ privateRouter.get("/username", (req, res) =>
 );
 
 privateRouter.get("/", (req, res) => {
-  res.render("index.hbs", { sneakers: sneakers });
+    let sneaker = sneakers.slice(0, 9);
+  res.render("index.hbs", { sneakers: sneaker });
 });
 
 privateRouter.get("/katalog", (req, res) => {
-  const { sort, minprice, maxprice } = req.query;
-  let filtered = param(sort, minprice, maxprice);
-
-  res.render("katalog.hbs", { sneakers: filtered, minprice: minprice || '', maxprice: maxprice || '' });
+  const { sort, minprice, maxprice,find } = req.query;
+  let filtered = param(sort, minprice, maxprice, find);
+  res.render("katalog.hbs", { sneakers: filtered, minprice: minprice || '', maxprice: maxprice || '', find: find || '' });
 
 });
 
@@ -166,6 +169,30 @@ privateRouter.post("/add-to-cart", (req, res) => {
     cart: req.session.cart,
   });
 });
+
+privateRouter.get("/reviews", (req,res) => {
+  res.render("reviews.hbs", {reviews: reviews} );
+});
+
+privateRouter.post("/reviews/adding", (req,res) =>{
+  let form = new formidable.IncomingForm();
+
+  form.parse(req, (err, fields) => {
+    if (err) {
+      console.error("Ошибка парсинга формы:", err);
+      return res.status(500).json({ message: "Ошибка обработки данных" });
+    }
+
+    const { review } = fields;
+    
+    reviews.push({author: req.session.username, text: review})
+
+    fs.writeFileSync(reviewsPath, JSON.stringify(reviews, null, 2), "utf-8");
+    
+    res.redirect("/auth/reviews");
+  });
+});
+
 privateRouter.get("/logout", (req, res) => {
   const { username } = req.session;
   if (username) {

@@ -1,38 +1,40 @@
 const url = require("url");
 const path = require("path");
 const formidable = require("formidable");
-const { sneakers, users, param, validateCredentials, checkExistion, register } = require("../data/information")
+const { sneakers, users, reviews, param, validateCredentials, checkExistion, register } = require("../data/information")
 const express = require("express");
 const bcrypt = require("bcrypt");
+const { checkNonAuth } = require("../middleware/authMiddlewear")
 
 const router = express.Router();
+exports.router = router;
 
 
-router.get("/", (req, res) => {
+router.get("/", checkNonAuth, (req, res) => {
   let sneaker = sneakers.slice(0, 9);
   res.render("index.hbs", { sneakers: sneaker });
 });
 
-router.get("/basket", (req, res) => {
+router.get("/basket",checkNonAuth, (req, res) => {
   res.render("basket.hbs", { auth: false });
 });
 
-router.get("/katalog", (req, res) => {
-  const { sort, minprice, maxprice } = req.query;
-  let filtered = param(sort, minprice, maxprice);
+router.get("/katalog",checkNonAuth, (req, res) => {
+  const { sort, minprice, maxprice , find} = req.query;
+  let filtered = param(sort, minprice, maxprice, find);
 
-  res.render("katalog.hbs", { sneakers: filtered, minprice: minprice || '', maxprice: maxprice || '' });
+  res.render("katalog.hbs", { sneakers: filtered, minprice: minprice || '', maxprice: maxprice || '', find: find || ''});
 });
 
-router.get("/log", (req, res) => {
+router.get("/log", checkNonAuth, (req, res) => {
   res.render("login.hbs");
 });
 
-router.get("/reg", (req, res) => {
+router.get("/reg", checkNonAuth, (req, res) => {
   res.render("register.hbs");
 });
 
-router.get("/product", (req, res) => {
+router.get("/product", checkNonAuth, (req, res) => {
   id = req.query.id;
 
   res.render("product.hbs",
@@ -44,7 +46,11 @@ router.get("/product", (req, res) => {
   );
 });
 
-router.post("/login", (req, res) => {
+router.get("/reviews",checkNonAuth, (req,res) => {
+  res.render("reviews.hbs", {reviews: reviews} );
+});
+
+router.post("/login",checkNonAuth, (req, res) => {
   let form = new formidable.IncomingForm();
 
   form.parse(req, async(err, fields) => {
@@ -75,7 +81,7 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/reg", (req, res) => {
+router.post("/reg", checkNonAuth, (req, res) => {
   let form = new formidable.IncomingForm();
 
   form.parse(req, async(err, fields) => {

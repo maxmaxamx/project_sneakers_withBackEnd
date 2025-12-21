@@ -292,3 +292,20 @@ a{
   box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
   background-color: white;
 }
+
+.find{
+    width: 94.5%;
+    margin: 0 auto;
+    padding-bottom: 15px;
+   
+}
+
+.find input{
+    width: 90%;
+}
+
+.search{
+    width: 9%;
+    height: 25px;
+}
+

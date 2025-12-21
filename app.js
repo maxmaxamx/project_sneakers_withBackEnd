@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const session = require('express-session');
 const hbs = require("hbs");
 const smartRouter = require("./routes/smart");
 const privateRouter = require("./routes/private");
@@ -14,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "/views/partials"));
 
-app.use( smartRouter );
+app.use(smartRouter);
 // app.use((req,res,next)=>{console.log(req.session.auth, "Авториация"); next();});
 app.use("/auth", privateRouter);
 

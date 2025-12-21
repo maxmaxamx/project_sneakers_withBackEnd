@@ -270,41 +270,31 @@ label{
     scale: 1.1;
 }
 
+#moree{
+    text-align: center;
+    padding: 0px 70px;
+    padding-top: 10px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    font-size: 45px;
+    display: block;
+    width: 470px;
+    transition: 0.5s;
+}
+
+#moree:hover{
+    background-color: whitesmoke;
+    color: black;
+    transition: 0.5s;
+}
+
 a:hover{
     cursor: pointer;
 }
 
 p,h1:hover{
     cursor: default;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.close {
-    position: absolute;
-    right: 600px;
-    font-size: 20px;
-    cursor: pointer;
-}   
-
-.modal-content img {
-    width: 500px;
-    height: 500px;  
-
 }
 
 #products-container button{
@@ -318,6 +308,7 @@ p,h1:hover{
 button:hover{
     cursor: pointer;
 }
+
 
 #reviews h1{
     font-size: 50px;

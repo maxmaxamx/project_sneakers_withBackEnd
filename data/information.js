@@ -12,10 +12,16 @@ const usersFromJSON = fs.readFileSync(
   'utf8'
 );
 
+const reviewsFromJSON = fs.readFileSync(
+  path.join(__dirname, './json/reviews.json'),
+  'utf8'
+);
+
 const usersPath = path.join(__dirname, "../data/json/users.json");
 
 const sneakers = JSON.parse(dataFromJSON);
 const users = JSON.parse(usersFromJSON)
+const reviews = JSON.parse(reviewsFromJSON);
 
 async function validateCredentials(username, password) {
   const user = users.find(u => u.username === username);
@@ -58,7 +64,7 @@ function sync(req) {
   fs.writeFileSync(usersPath, JSON.stringify(users, null, 2), "utf-8");
 }
 
-function param(sort, minprice, maxprice) {
+function param(sort, minprice, maxprice, find) {
   let filtered = [...sneakers];
 
   if (minprice !== undefined && minprice !== '' && !isNaN(minprice)) {
@@ -71,6 +77,10 @@ function param(sort, minprice, maxprice) {
     filtered = filtered.filter(item => item.price <= max);
   }
 
+  if( find!== undefined && find !=='') {
+    filtered = filtered.filter(item => item.title.toLowerCase().includes(find.toLowerCase()));
+  }
+
 
   if (sort == "ascending") {
     filtered.sort((a, b) => a.price - b.price);
@@ -81,4 +91,4 @@ function param(sort, minprice, maxprice) {
   return filtered;
 }
 
-module.exports = { sneakers, users, sync, param, validateCredentials, checkExistion, register };
+module.exports = { sneakers, users, reviews, sync, param, validateCredentials, checkExistion, register };
