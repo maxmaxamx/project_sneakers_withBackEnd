@@ -1,0 +1,41 @@
+a{
+    text-decoration: none;
+    color: #333;
+    font-family: Blippo, fantasy;
+    font-size: 35px;
+}
+
+ul {
+    height: 50px;
+    margin-top: 10px;
+    display: block;
+}
+
+li {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+
+#second {
+    margin-left: 200px;
+}
+
+#third {
+    margin-left: 200px;
+}
+
+#fourth{
+    margin-left: 200px;
+
+}
+
+.sticky {
+    background-color:whitesmoke; /* Полупрозрачный белый */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+}
+

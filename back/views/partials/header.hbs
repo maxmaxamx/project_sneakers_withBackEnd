@@ -1,0 +1,50 @@
+<nav class="sticky" style="z-index: 10;">
+
+    {{#if @root.auth}}
+    <div>
+        <a href="/auth/" class="danfo">SNEAKERS</a>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="/auth/logout" id="enter-button" class="ruslan-display-regular">Выйти</a>
+            </li>
+            <li><a href="/auth/katalog" id="third" class="ruslan-display-regular">Каталог</a></li>
+            <li><a href="/auth/reviews" id="second" class="ruslan-display-regular">Отзывы</a></li>
+            <li><a href="/auth/basket" id="fourth" class="ruslan-display-regular">Корзина</a></li>
+        </ul>
+    </div>
+
+    {{else if @root.admin}}
+
+    <div>
+        <a href="/admin/" class="danfo">SNEAKERS</a>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="/admin/logout" id="enter-button" class="ruslan-display-regular">Выйти</a>
+            </li>
+            <li><a href="/admin/katalog" id="third" class="ruslan-display-regular">Каталог</a></li>
+            <li><a href="/admin/reviews" id="second" class="ruslan-display-regular">Отзывы</a></li>
+        </ul>
+    </div>
+
+    {{else}}
+    <div>
+        <a href="/" class="danfo">SNEAKERS</a>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="/log" id="enter-button" class="ruslan-display-regular">Войти</a>
+            </li>
+            <li><a href="/katalog" id="third" class="ruslan-display-regular">Каталог</a></li>
+            <li><a href="/reviews" id="second" class="ruslan-display-regular">Отзывы</a></li>
+            <li><a href="/basket" id="fourth" class="ruslan-display-regular">Корзина</a></li>
+        </ul>
+    </div>
+
+
+    {{/if}}
+</nav>

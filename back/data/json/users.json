@@ -1,0 +1,43 @@
+[
+  {
+    "username": "nikola22@gmail.com",
+    "password": "$2b$10$1QheJLwKTy3idMxETzITsup3wrzSgKoSx62dSxy5/FbcCJaQmEB7S",
+    "cart": [
+      {
+        "id": 0,
+        "quantity": 5
+      },
+      {
+        "id": 1,
+        "quantity": 4
+      },
+      {
+        "id": 5,
+        "quantity": 3
+      },
+      {
+        "id": 7,
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "username": "user@gmail.com",
+    "password": "$2b$10$kcPV2ih1O3O4YFLAt0qyJurh3WFLnKBAkxW8Fy/RT/B45gvg9EOji",
+    "cart": [
+      {
+        "id": 5,
+        "quantity": 1
+      },
+      {
+        "id": 1,
+        "quantity": 3
+      }
+    ]
+  },
+  {
+    "username": "xenia@gmail.com",
+    "password": "$2b$10$7c.P7yvpvAXWkvhQ1uh4Fe4S.ZtMi2ZDI06oDHOkksPwQwr4NiQRG",
+    "cart": []
+  }
+]

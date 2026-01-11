@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- danfo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Danfo&family=Londrina+Sketch&display=swap" rel="stylesheet">
+
+  <!-- Ruslan Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ruslan+Display&family=Slackey&display=swap"
+    rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/reviews.css">
+</head>
+
+<body>
+  {{>header}}
+
+  <div class="reviews-container">
+    <h1 class="ruslan-display-regular">Отзывы клиентов</h1>
+
+    <div class="review-card write">
+      <input type="text" autocomplete="off" id="find" class="input" placeholder="Find smth" value="{{find}}">
+      <button class="search custom-btn btn-2" onclick="setParams()">Поиск</button>
+    </div>
+
+    {{#if @root.auth}}
+    <form action="/auth/reviews/adding" method="POST" class="review-card write">
+      <textarea name="review" class="input "></textarea>
+      <button class="custom-btn btn-2">Отправить</button>
+    </form>
+    {{else}}
+
+    {{/if}}
+
+    {{#if reviews.length}}
+    <div class="review-list">
+      {{#each reviews}}
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-author">{{this.author}}</div>
+        </div>
+        <div class="review-rating">
+
+        </div>
+        <div class="review-text">{{this.text}}</div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="empty-reviews">Пока нет отзывов. Будьте первым!</div>
+    {{/if}}
+  </div>
+
+  <script src="/js/reviews.js"></script>
+
+</body>
+
+</html>

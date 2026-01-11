@@ -1,0 +1,163 @@
+[
+  {
+    "id": 0,
+    "title": "Nike Air Force 1 '07",
+    "price": 100,
+    "description": "Кроссовки Nike Air Force 1 '07 LV8 ",
+    "image": [
+      "/images/hv5752-410-a.webp",
+      "/images/hv5752-410-b.webp",
+      "/images/hv5752-410-c.webp",
+      "/images/hv5752-410-d.webp",
+      "/images/hv5752-410-e.webp",
+      "/images/hv5752-410-f.webp"
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Nike Lunar Roam",
+    "price": 200,
+    "description": "Кроссовки Nike Lunar Roam Premium",
+    "image": [
+      "/images/hv2523-002-a.webp",
+      "/images/hv2523-002-b.webp",
+      "/images/hv2523-002-c.webp",
+      "/images/hv2523-002-d.webp",
+      "/images/hv2523-002-e.webp",
+      "/images/hv2523-002-f.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Nike Cortez",
+    "price": 150,
+    "description": "Кроссовки Nike Cortez Leather",
+    "image": [
+      "/images/dm4044-108-a.webp",
+      "/images/dm4044-108-b.webp",
+      "/images/dm4044-108-c.webp",
+      "/images/dm4044-108-d.webp",
+      "/images/dm4044-108-e.webp",
+      "/images/dm4044-108-f.webp"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Nike Air Max Pulse",
+    "price": 300,
+    "description": "Кроссовки Nike Air Max Pulse",
+    "image": [
+      "/images/fz2143-004-a.webp",
+      "/images/fz2143-004-b.webp",
+      "/images/fz2143-004-c.webp",
+      "/images/fz2143-004-d.webp",
+      "/images/fz2143-004-e.webp",
+      "/images/fz2143-004-f.webp"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Air Jordan 11 Retro",
+    "price": 130,
+    "description": "Кроссовки Air Jordan 11 Retro",
+    "image": [
+      "/images/ct8012-104-a.webp",
+      "/images/ct8012-104-b.webp",
+      "/images/ct8012-104-c.webp",
+      "/images/ct8012-104-d.webp",
+      "/images/ct8012-104-e.webp",
+      "/images/ct8012-104-f.webp"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Adidas Temper Run 2",
+    "price": 250,
+    "description": "Кроссовки Adidas Temper Run 2",
+    "image": [
+      "/images/ih0402-a.webp",
+      "/images/ih0402-b.webp",
+      "/images/ih0402-c.webp",
+      "/images/ih0402-d.webp",
+      "/images/ih0402-e.webp",
+      "/images/ih0402-f.webp"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Nike Dunk Low Retro SE",
+    "price": 350,
+    "description": "Кроссовки Nike Dunk Low Retro SE",
+    "image": [
+      "/images/hf3141-400-a.webp",
+      "/images/hf3141-400-b.webp",
+      "/images/hf3141-400-c.webp",
+      "/images/hf3141-400-d.webp",
+      "/images/hf3141-400-e.webp"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Nike Air More Uptempo",
+    "price": 325,
+    "description": "Кроссовки Nike Air More Uptempo Low",
+    "image": [
+      "/images/fz3055-100-a.webp",
+      "/images/fz3055-100-b.webp",
+      "/images/fz3055-100-c.webp",
+      "/images/fz3055-100-d.webp"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Nike Air Max 90",
+    "price": 175,
+    "description": "Кроссовки Nike Air Max 90",
+    "image": [
+      "/images/if0670-600-a.webp",
+      "/images/if0670-600-b.webp",
+      "/images/if0670-600-c.webp",
+      "/images/if0670-600-d.webp"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Nike Air Max Ishod",
+    "price": 175,
+    "description": "Кроссовки Nike Air Max Ishod",
+    "image": [
+      "/images/hf3062-001-a.webp",
+      "/images/hf3062-001-b.webp",
+      "/images/hf3062-001-c.webp",
+      "/images/hf3062-001-d.webp",
+      "/images/hf3062-001-e.webp",
+      "/images/hf3062-001-f.webp"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Nike Air Max Dn",
+    "price": 230,
+    "description": "Кроссовки Nike Air Max Dn",
+    "image": [
+      "/images/hv3521-700-a.webp",
+      "/images/hv3521-700-b.webp",
+      "/images/hv3521-700-c.webp",
+      "/images/hv3521-700-d.webp",
+      "/images/hv3521-700-e.webp",
+      "/images/hv3521-700-f.webp"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Jordan Max Aura 6",
+    "price": 230,
+    "description": "Кроссовки Jordan Max Aura 6",
+    "image": [
+      "/images/fq7943-100-a.webp",
+      "/images/fq7943-100-b.webp",
+      "/images/fq7943-100-c.webp",
+      "/images/fq7943-100-d.webp"
+    ]
+  }
+]
